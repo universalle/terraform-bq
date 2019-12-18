@@ -13,15 +13,8 @@ resource "google_bigquery_table" "card_table" {
   project = var.project
   external_data_configuration {
     autodetect    = true
-    /*
-    csv_options {
-    quote     = ""
-    encoding  = "UTF-8"
-    allow_quoted_newlines = true
-    }
-    */
     source_format = "CSV"
-    source_uris = ["gs://mlt_bucket/electronic-card-transactions-november-2019-csv.csv",]
+    source_uris = var.source_file_uri
     }
 }
 resource "null_resource" "udf_query" {
