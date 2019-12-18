@@ -1,0 +1,1 @@
+CREATE FUNCTION udf_data_frame.selectPeriod() AS ("SELECT Period from udf_data_frame.card_table");
